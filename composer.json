@@ -1,0 +1,23 @@
+{
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-gd": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo_mysql": "*",
+        "tinymce/tinymce": "^4.3"
+    },
+    "config": {
+        "vendor-dir": "app/source/vendor"
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "gulp build"
+        ],
+        "post-install-cmd": [
+            "npm install",
+            "gulp build"
+        ]
+    }
+}
