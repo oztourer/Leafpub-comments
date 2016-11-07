@@ -21,44 +21,51 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 // Get base slugs from settings
-$frags = (object) [
-    'comments' => Setting::get('frag_comments') || 'comments'
-];
+//$frags = (object) [
+
+    'comments' => Setting::get('frag_comments') ?: 'comments'
+
+//];
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // API routes
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Protected
-$app->group("/api", function() {
+//$app->group("/api", function() {
+
     // Comments
     $this->get('/comments', 'Postleaf\Plugins\Comments\APICommentController:getComments');
     $this->post('/comments', 'Postleaf\Plugins\Comments\APICommentController:addComment');
     $this->put('/comments/{id}', 'Postleaf\Plugins\Comments\APICommentController:updateComment');
     $this->delete('/comments/{id}', 'Postleaf\Plugins\Comments\APICommentController:deleteComment');
 
-})->add('Postleaf\Middleware:requireAuth');
+//})->add('Postleaf\Middleware:requireAuth');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Admin views
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Protected
-$app->group("/$frags->admin", function() {
+//$app->group("/$frags->admin", function() {
+
     // Comments
     $this->get('/comments', 'Postleaf\Controller\AdminController:comments');
     $this->get('/comments/new', 'Postleaf\Controller\AdminController:newComment');
     $this->get('/comments/{id}', 'Postleaf\Controller\AdminController:editComment');
-})->add('Postleaf\Middleware:requireAuth');
+
+//})->add('Postleaf\Middleware:requireAuth');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Theme views
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Comments
-$app->group("/$frags->comments", function() use ($frags) {
+//$app->group("/$frags->comments", function() use ($frags) {
+
     $this->get("/{slug}[/$frags->page/{page:[0-9]+}]", 'Postleaf\Plugins\Comments\ThemeCommentController:comments');
-})->add('Postleaf\Middleware:adjustPageNumbers');
+
+//})->add('Postleaf\Middleware:adjustPageNumbers');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
