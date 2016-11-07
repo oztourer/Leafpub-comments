@@ -18,9 +18,10 @@ Created by [Steve Pike](https://twitter.com/oztourer)
 ## Installation
 
 - Install [Postleaf](https://github.com/Postleaf)!
-- Copy the source files from app/source to the source directory of the Postleaf installation.
-- Run defaults/default.comments.sql on the existing Postleaf database to create the Comments table (you may need to edit prefix 'postleaf_' to suit your installation.
-- Merge index-comments.php into Postleaf's index.php. This manual step will be automated once plugins have been implemented in Postleaf.
+- Copy the files from directory 'app' to the root directory of the Postleaf installation. If done correctly you should have index_comments.php in the same directory as Postleaf's index.php, and a new directory Plugins below source/Classes.
+- Run defaults/default.comments.sql on the existing Postleaf database to create the Comments table (you may need to edit prefix 'postleaf_' to suit your installation).
+- To enable Comments add the following line near the end of Postleaf's index.php, just above $app->run():
+ - require 'index_comments.php';
 - No changes should be required to the existing Postleaf classes.
 - Install theme [wildgeese](https://github.com/oztourer/Postleaf-theme-wildgeese) as an example implementation of comments within a theme (other themes should still work but will not show or support comments).
 
