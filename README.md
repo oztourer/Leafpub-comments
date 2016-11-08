@@ -13,6 +13,8 @@ Created by [Steve Pike](https://twitter.com/oztourer)
 
 - The code was not developed using the prescribed Postleaf tools of node.js, composer and gulp, and the provided composer.json and gulpfile.js are untested skeleton files.
 - The SQL Comments table includes a parent field, allowing nested replies to comments, but this has not yet been implemented in the Comments class.
+- There is currently no admin interface to comments.
+- Comments are for now just plain text - no HTML or Markup support.
 
 
 ## Installation
