@@ -2,14 +2,14 @@
 //
 // Extends the Controller for API endpoints to support Comments
 //
-namespace Postleaf\Plugins\Comments;
+namespace Leafpub\Plugins\Comments;
 
-use Postleaf\Plugins\Comments\Comment,
-    Postleaf\Session,
-    Postleaf\Admin,
-    Postleaf\Language,
-    Postleaf\Post,
-    Postleaf\Controller\Controller;
+use Leafpub\Plugins\Comments\Comment,
+    Leafpub\Session,
+    Leafpub\Admin,
+    Leafpub\Language,
+    Leafpub\Post,
+    Leafpub\Controller\Controller;
 
 
 class APICommentController extends Controller {

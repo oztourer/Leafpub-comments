@@ -3,8 +3,9 @@
 ####################################################################################################
 
 DROP TABLE IF EXISTS `postleaf_comments`;
+DROP TABLE IF EXISTS `leafpub_comments`;
 
-CREATE TABLE `postleaf_comments` (
+CREATE TABLE `leafpub_comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent` int(11) NOT NULL,
   `post` int(11) NOT NULL,

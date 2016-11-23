@@ -1,10 +1,10 @@
 <?php
 /*
-Comments: a Postleaf plugin.
+Comments: a Leafpub plugin.
 Copyright 2016 Steve Pike
 
 For now, the code below needs to be manually merged into index.php, pending
-implementation of plugins in Postleaf. 
+implementation of plugins in Leafpub. 
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,12 +21,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*
- * To integrate Comments into Postleaf, add the following line near the
- * end of Postleaf's index.php, just above $app->run():
+ * To integrate Comments into Leafpub, add the following line near the
+ * end of Leafpub's index.php, just above $app->run():
  *    require 'index_comments.php';
  */
 
-namespace Postleaf;
+namespace Leafpub;
 
 // Add comments slug from settings, or use default value
 $frag_comments = Setting::get('frag_comments') ?: 'comments';
@@ -39,13 +39,13 @@ $frag_comments = Setting::get('frag_comments') ?: 'comments';
 $app->group("/api", function() {
 
     // Comments
-    $this->get('/comments', 'Postleaf\Plugins\Comments\APICommentController:getComments');
-    $this->post('/comments', 'Postleaf\Plugins\Comments\APICommentController:addComment');
-    $this->put('/comments/{id}', 'Postleaf\Plugins\Comments\APICommentController:updateComment');
-    $this->delete('/comments/{id}', 'Postleaf\Plugins\Comments\APICommentController:deleteComment');
+    $this->get('/comments', 'Leafpub\Plugins\Comments\APICommentController:getComments');
+    $this->post('/comments', 'Leafpub\Plugins\Comments\APICommentController:addComment');
+    $this->put('/comments/{id}', 'Leafpub\Plugins\Comments\APICommentController:updateComment');
+    $this->delete('/comments/{id}', 'Leafpub\Plugins\Comments\APICommentController:deleteComment');
 
 //});
-})->add('Postleaf\Middleware:requireAuth');
+})->add('Leafpub\Middleware:requireAuth');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Admin views
@@ -55,11 +55,11 @@ $app->group("/api", function() {
 $app->group("/$frags->admin", function() {
 
     // Comments
-    $this->get('/comments', 'Postleaf\Controller\AdminController:comments');
-    $this->get('/comments/new', 'Postleaf\Controller\AdminController:newComment');
-    $this->get('/comments/{id}', 'Postleaf\Controller\AdminController:editComment');
+    $this->get('/comments', 'Leafpub\Controller\AdminController:comments');
+    $this->get('/comments/new', 'Leafpub\Controller\AdminController:newComment');
+    $this->get('/comments/{id}', 'Leafpub\Controller\AdminController:editComment');
 
-})->add('Postleaf\Middleware:requireAuth');
+})->add('Leafpub\Middleware:requireAuth');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Theme views
@@ -67,8 +67,8 @@ $app->group("/$frags->admin", function() {
 
 // Comments
 $app->group("/$frag_comments", function() use ($frags) {
-    $this->get("/{slug}[/$frags->page/{page:[0-9]+}]", 'Postleaf\Plugins\Comments\ThemeCommentController:comments');
-})->add('Postleaf\Middleware:adjustPageNumbers');
+    $this->get("/{slug}[/$frags->page/{page:[0-9]+}]", 'Leafpub\Plugins\Comments\ThemeCommentController:comments');
+})->add('Leafpub\Middleware:adjustPageNumbers');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -2,10 +2,10 @@
 //
 // Extends the Controller for theme views to support Comments
 //
-namespace Postleaf\Plugins\Comments;
+namespace Leafpub\Plugins\Comments;
 
-use Postleaf\Plugins\Comments\Comment,
-    Postleaf\Controller\Controller;
+use Leafpub\Plugins\Comments\Comment,
+    Leafpub\Controller\Controller;
 
 
 

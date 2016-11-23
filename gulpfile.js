@@ -36,7 +36,7 @@ var gulp = require('gulp-help')(require('gulp')),
 gulp.task('release:make', 'Generate a release.', function() {
     var config = require(path.join(__dirname, 'package.json')),
         dist = path.join(__dirname, 'dist'),
-        target = path.join(dist, 'postleaf-comments-' + config.version);
+        target = path.join(dist, 'leafpub-comments-' + config.version);
 
     // Delete the target directory if it exists
     del.sync(target);
@@ -44,7 +44,7 @@ gulp.task('release:make', 'Generate a release.', function() {
     // Create dist directory
     fs.mkdirsSync(dist);
 
-    // Copy app/ to dist/postleaf-<version>/
+    // Copy app/ to dist/leafpub-<version>/
     fs.copySync(path.join(__dirname, 'app'), target);
 
     // Copy license and installation instructions
@@ -68,7 +68,7 @@ gulp.task('release:make', 'Generate a release.', function() {
 
     // Little message to celebrate
     console.log(
-        '\nPostleaf Comments  ' + config.version + ' has been released! 🎉\n\n' +
+        '\nLeafpub Comments  ' + config.version + ' has been released! 🎉\n\n' +
         'Location: ' + target + '\n'
     );
 });
