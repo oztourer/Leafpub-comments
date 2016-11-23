@@ -1,4 +1,4 @@
-# <img src="https://www.leafpub.org/content/themes/leafpub/img/logo-color-text.svg" alt="Leafpub" width="300">
+# Leafpub-comments
 
 **A basic commenting system integrated into Leafpub.**
 
